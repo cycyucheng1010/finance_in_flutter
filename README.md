@@ -14,6 +14,6 @@
     source finance/bin/activate
     ```
 ## Important!
-* If you install some plugin in pip, please use the following command to save it!
+* If you install some plugin in pip, please use the following command to record and let others know!
 path: ```finance_in_flutter/Backend```
 run command: ```pip freeze > requirements.txt```
