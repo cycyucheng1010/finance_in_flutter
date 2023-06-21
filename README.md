@@ -1,4 +1,5 @@
 # finance_in_flutter
+## Django + Flutter 
 ## python Init step
 1. Clone the project
     ```git clone https://github.com/cycyucheng1010/finance_in_flutter.git```
