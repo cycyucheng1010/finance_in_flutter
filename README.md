@@ -19,4 +19,8 @@
 path: ```finance_in_flutter/Backend```
 run command: ```pip freeze > requirements.txt```
 ## Flutter 
-* To be continue....
+* run the app: 
+```
+cd myapp
+flutter run 
+```
