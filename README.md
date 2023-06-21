@@ -1,5 +1,5 @@
 # finance_in_flutter
-## Init step
+## python Init step
 1. Clone the project
     ```git clone https://github.com/cycyucheng1010/finance_in_flutter.git```
 2. Install the environment's control plugin
@@ -17,3 +17,5 @@
 * If you install some plugin in pip, please use the following command to record and let others know!
 path: ```finance_in_flutter/Backend```
 run command: ```pip freeze > requirements.txt```
+## Flutter 
+* To be continue....
