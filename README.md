@@ -24,5 +24,5 @@ run command: ```pip freeze > requirements.txt```
 STEP1
 cd myapp
 flutter run
- s
+ 
 ```
