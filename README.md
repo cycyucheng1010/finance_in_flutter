@@ -21,6 +21,8 @@ run command: ```pip freeze > requirements.txt```
 ## Flutter 
 * run the app: 
 ```
+STEP1
 cd myapp
 flutter run gogo
+
 ```
