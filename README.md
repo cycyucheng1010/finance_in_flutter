@@ -7,7 +7,7 @@
     ```pip3 installvirtualenv```
 3. Into the project and run following command
     ```
-    cd cd finance_in_flutter/
+    cd finance_in_flutter/
     virtualenv -p /usr/bin/python3 finance
     ```
 4. active the environment
