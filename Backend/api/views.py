@@ -66,12 +66,13 @@ def user_account(request):
         
 @api_view(['GET'])
 def all_user(request):
-    if request.user =='root':
-        print('userIP:',request.META['REMOTE_ADDR'])
+    print(request.META['REMOTE_ADDR'],request.user)
+    try:
+        check_data = User.objects.get(username = request.user)
         user_data = User.objects.all()
         serializer = UserSerializer(user_data,many=True)
         return Response(serializer.data)
-    else:
-        message = {"msg":"I can't tell you",'time':datetime.datetime.now()}
+    except:
+        message = {"msg":"I can't tell you. You are "+str(request.user),'time':datetime.datetime.now()}
         return Response(message)
     
