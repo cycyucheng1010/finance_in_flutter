@@ -75,4 +75,3 @@ def all_user(request):
     except:
         message = {"msg":"I can't tell you. You are "+str(request.user),'time':datetime.datetime.now()}
         return Response(message)
-    
