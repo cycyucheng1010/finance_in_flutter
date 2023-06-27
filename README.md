@@ -26,3 +26,4 @@ cd myapp
 flutter run
  
 ```
+##　連接ａｎｄｒｏｉｄ
