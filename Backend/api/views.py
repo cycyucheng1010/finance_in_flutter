@@ -34,12 +34,11 @@ def user_account(request):
         data = request.data
         try:
             user_data = User.objects.get(username = data['account'])
-            print(user_data)
             serializer = UserSerializer(user_data,many=False)
             message = {'msg':'query success user: '+str(serializer.data['username'])+" is exist" ,'time':datetime.datetime.now()}
             return Response(message)
         except:
-            message = {'msg':'query error or account '+data['account'] +' not exist' ,'time':datetime.datetime.now()}
+            message = {'msg':'query error or account not exist' ,'time':datetime.datetime.now()}
             return Response(message)
     elif request.method == 'PUT':
         data = request.data
