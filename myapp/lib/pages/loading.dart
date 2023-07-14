@@ -1,37 +1,41 @@
-import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'dart:convert';
+// import 'package:flutter/material.dart';
+// import 'package:myapp/services/world_time.dart';
+// import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class Loading extends StatefulWidget {
-  @override
-  _LoadingState createState() => _LoadingState();
-}
+// class Loading extends StatefulWidget {
+//   @override
+//   _LoadingState createState() => _LoadingState();
+// }
 
-class _LoadingState extends State<Loading> {
-  void gettime() async {
-    Response response = await get('http://172.104.66.29:9487/' as Uri);
-    Map data = jsonDecode(response.body);
+// class _LoadingState extends State<Loading> {
+//   void setupWorldTime() async {
+//     WorldTime instance =
+//         WorldTime(msg: 'Barlin', code: 'germany.png', url: "Europe/Berl");
+//     await instance.getTime();
+//     Navigator.pushReplacementNamed(context, '/home', arguments: {
+//       'msg': instance.msg,
+//       'code': instance.code,
+//       'time': instance.time,
+//       'isDaytime': instance.isDaytime,
+//     });
+//   }
 
-    //get properties trom data
-    String datetime = data['datetime'];
-    String offset = data['utc_ffset'].substring(1, 3);
-    //print(datetime);
-    //print(offset);
+//   @override
+//   void initState() {
+//     super.initState();
+//     setupWorldTime();
+//   }
 
-    //create DateTime object
-    DateTime now = DateTime.parse(datetime);
-    now = now.add(Duration(hours: int.parse(offset)));
-    print(now);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    gettime();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: Text('loading screen'));
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.blue[900],
+//       body: Center(
+//         child: SpinKitFadingCube(
+//           color: Colors.white,
+//           size: 80.0,
+//         ),
+//       ),
+//     );
+//   }
+// }
