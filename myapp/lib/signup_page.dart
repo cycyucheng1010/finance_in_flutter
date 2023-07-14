@@ -1,18 +1,22 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'signup_page.dart';
 import 'package:get/get.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
+    List images = [
+      "g.png",
+      "t.png",
+      "f.png",
+    ];
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -25,6 +29,16 @@ class _LoginPageState extends State<LoginPage> {
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('day.jpg'), fit: BoxFit.cover)),
+            child: Column(
+              children: [
+                SizedBox(height: h * 0.16),
+                CircleAvatar(
+                  backgroundColor: Colors.white70,
+                  radius: 60,
+                  backgroundImage: AssetImage("night.jpg"),
+                ),
+              ],
+            ),
           ),
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20),
@@ -32,14 +46,6 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Hello",
-                  style: TextStyle(fontSize: 70, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "Sign into your account",
-                  style: TextStyle(fontSize: 20, color: Colors.grey[500]),
-                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -88,10 +94,8 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextField(
                     decoration: InputDecoration(
                         hintText: "Password",
-                        prefixIcon: Icon(
-                          Icons.password,
-                          color: Colors.deepOrangeAccent,
-                        ),
+                        prefixIcon: Icon(Icons.password_outlined,
+                            color: Colors.deepOrangeAccent),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
                             borderSide:
@@ -107,17 +111,17 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(),
-                    ),
-                    Text(
-                      "Sign into your account",
-                      style: TextStyle(fontSize: 20, color: Colors.grey[500]),
-                    ),
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     Expanded(
+                //       child: Container(),
+                //     ),
+                //     Text(
+                //       "Sign into your account",
+                //       style: TextStyle(fontSize: 20, color: Colors.grey[500]),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),
@@ -133,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                     image: AssetImage('night.jpg'), fit: BoxFit.cover)),
             child: Center(
               child: Text(
-                "Sign in",
+                "Sign up",
                 style: TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.bold,
@@ -142,22 +146,38 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
+          SizedBox(height:10,),
+          RichText(
+            text:TextSpan(
+              recognizer: TapGestureRecognizer()..onTap=()=>Get.back(),
+              text: "Have an account?",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.grey[500]
+              )
+            )
+            ),
           SizedBox(height: w * 0.2),
           RichText(
             text: TextSpan(
-              text: "Don\'t have an account?",
+              text: "Sign up using one of the following methods",
               style: TextStyle(color: Colors.grey[500], fontSize: 20),
-              children: [
-                TextSpan(
-                    text: "Create",
-                    style: TextStyle(
-                        color: Colors.grey[500],
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () => Get.to(() => SignUpPage())),
-              ],
             ),
+          ),
+          Wrap(
+            children: List<Widget>.generate(3, (index) {
+              return Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.grey[500],
+                  child: CircleAvatar(
+                    radius: 25,
+                    backgroundImage: AssetImage("img/" + images[index]),
+                  )
+                )
+              );
+            }),
           ),
         ],
       ),
